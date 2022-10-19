@@ -156,6 +156,7 @@ func (a *Client) CopyPassThru(ctx context.Context, r io.Reader, remotePath strin
 	errCh := make(chan error, 2)
 
 	go func() {
+		time.Sleep(1 * time.Second)
 		defer wg.Done()
 		w, err := a.Session.StdinPipe()
 		if err != nil {
